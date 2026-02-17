@@ -1,102 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingsley Debrah | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    scroll-behavior:smooth;
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 120px 70px auto 80px;
+    min-height:100vh;
+}
+
+/* HEADER */
+header{
+    grid-column:1 / -1;
+    background:#111;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+}
+
+/* NAV */
+nav{
+    grid-column:1 / -1;
+    background:#222;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-container{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:1rem;
+}
+
+.nav-container a{
+    color:white;
+    text-decoration:none;
+    padding:0.5rem 1rem;
+    transition:0.3s;
+}
+
+.nav-container a:hover{
+    background:#444;
+    border-radius:5px;
+}
+
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    padding:1rem;
+}
+
+.hamburger span{
+    height:3px;
+    width:25px;
+    background:white;
+    margin:4px;
+}
+
+/* SIDE BARS */
+.left, .right{
+    background:#f4f4f4;
+    padding:1rem;
+}
+
+.left h3{
+    margin-bottom:10px;
+}
+
+.left p{
+    margin-bottom:6px;
+}
+
+main{
+    background:white;
+    padding:2rem;
+}
+
+/* SECTIONS */
+section{
+    margin-bottom:60px;
+}
+
+section h2{
+    margin-bottom:15px;
+    border-bottom:2px solid #222;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+/* PROFILE IMAGE */
+.profile-pic{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+    border:5px solid #222;
+}
+
+/* FOOTER */
+footer{
+    grid-column:1 / -1;
+    background:#111;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .grid-container{
+        grid-template-columns:1fr;
+        grid-template-rows:120px 70px auto auto auto 80px;
+    }
+
+    .left, .right, main{
+        grid-column:1 / -1;
+    }
+
+    .nav-container{
+        display:none;
+        flex-direction:column;
+        background:#222;
+    }
+
+    .nav-container.active{
+        display:flex;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="page-grid">
+<div class="grid-container">
 
-    <!-- HEADER -->
-    <header class="header">
-        <img src="./IMG_8578.jpg" alt="Profile photo">
-        <h1>Kingsley Debrah</h1>
-        <p>Web Developer | Programmer | Tech Enthusiast</p>
-    </header>
+<header>
+    Kingsley Debrah | Backend & Software Developer
+</header>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+<nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-        <section>
-            <h2>Summary</h2>
-            <p>
-                A highly-motivated individual eager to learn and explore
-                Software Development, Testing, Data Analysis,
-                Cloud, System & Network Administration.
-            </p>
-        </section>
+    <div class="nav-container" id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>Modern International (2004–2014)</li>
-                <li>Kumasi Academy SHS (2014–2016)</li>
-                <li>HTL Wien West – Informatik (2020–2025)</li>
-            </ul>
-        </section>
+<aside class="left">
+    <h3>Core Focus</h3>
+    <p>Backend Development</p>
+    <p>Cloud Computing</p>
+    <p>Networking (CCNA)</p>
 
-        <section>
-            <h2>Work Experience</h2>
+    <h3 style="margin-top:20px;">Technical Skills</h3>
+    <p>Java</p>
+    <p>C++</p>
+    <p>JavaScript</p>
+    <p>SQL</p>
+    <p>HTML & CSS</p>
+    <p>PHP</p>
+    <p>Linux & Windows Server</p>
+</aside>
 
-            <h3>Operations Assistant – Snipes GmbH</h3>
-            <ul>
-                <li>Cash register & counter operations</li>
-                <li>Inventory management</li>
-                <li>Customer service support</li>
-            </ul>
+<main>
 
-            <h3>PC Support – Samariterbund</h3>
-            <ul>
-                <li>First-level support for digital recording and testing systems</li>
-                    <li>Error analysis and support for software and system problems during operation</li>
-                    <li>Ensuring correct data transmission to the test registry of the City of Vienna</li>
-                    <li>Recording and validation of personal data, including identity verification (data protection & accuracy)</li>
-                    <li>System support for the digital process chain (registration, sample collection, notification of results)</li>
-                    <li>Support with the digital transmission and printing of test certificates</li>
-                    <li>Documentation of processes and status messages in the system</li>
-            </ul>
-        </section>
+<section id="home">
+    <h2>Home</h2>
 
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming & Software Development</li>
-                <li>Web Development</li>
-                <li>Databases & Information Systems</li>
-                <li>Networks & Infrastructure</li>
-                <li>Cloud & System Administration</li>
-                <li>AI & Machine Learning</li>
-                
-            </ul>
-        </section>
+    <img src="IMG_8578.jpg" alt="Kingsley Debrah" class="profile-pic">
 
-        <section>
-            <h2>Awards & Certifications</h2>
-            <ul>
-                <li>Oracle Data Platform Foundations</li>
-                <li>Oracle Cloud Infrastructure Foundations</li>
-                <li>Oracle AI Foundations</li>
-            </ul>
-        </section>
+    <p>
+        I am an Informatics graduate from HTL Wien West with a strong foundation in software engineering, 
+        databases, networking, and system administration.
+    </p>
 
-        <section>
-            <h2>Others</h2>
-            <a href="./form.php">Contact Me</a>
-            <p>need to host database for it to work haha :/</p>
-        </section>
+    <p>
+        Currently, I am further specializing in backend technologies through an evening course in 
+        Backend Web Development at CodeFactory in Vienna.
+    </p>
 
-    </main>
+    <p>
+        I am passionate about building scalable backend systems, working with APIs and databases, 
+        and developing secure and efficient web applications.
+    </p>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 Kingsley Debrah | All rights reserved</p>
-    </footer>
+<section id="about">
+    <h2>About Me</h2>
+
+    <p>
+        After completing my Informatics education at HTL Wien West (2020–2025), 
+        I developed strong technical knowledge in programming, relational database design, 
+        networking (CCNA), distributed systems, and project-based software development.
+    </p>
+
+    <p>
+        In parallel to my studies, I gained professional experience in technical support and digital system operations. 
+        I was responsible for troubleshooting system issues, validating data processes, and ensuring 
+        reliable digital workflows. These roles strengthened my analytical thinking, accuracy, and structured problem-solving skills.
+    </p>
+
+    <p>
+        To deepen my backend expertise, I am currently enrolled in a Backend Web Development evening course at CodeFactory. 
+        There, I focus on server-side logic, REST APIs, database integration, and backend architecture.
+    </p>
+
+    <p>
+        My long-term goal is to combine backend development, cloud computing, and system design principles 
+        to build scalable and secure digital solutions.
+    </p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: Kingsleydebrah98@gmail.com</p>
+    <p>Phone: +43 6609281142</p>
+    <p>Location: Vienna, Austria</p>
+</section>
+
+</main>
+
+<aside class="right">
+    <h3>Languages</h3>
+    <p>English</p>
+    <p>Deutsch</p>
+    <p>Akan - Twi</p>
+</aside>
+
+<footer>
+    © 2026 Kingsley Debrah | All rights reserved
+</footer>
 
 </div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
